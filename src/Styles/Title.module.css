@@ -1,0 +1,28 @@
+.container {
+	display: flex;
+	align-items: center;
+	background-color: rgba(45, 47, 49, 0.5);
+	width: 600px;
+	margin-top: 20px;
+	border-radius: 10px;
+}
+
+.imageContainer {
+	display: flex;
+	height: 200px;
+	width: 200px;
+	margin-right: 20px;
+}
+
+.image {
+	border-bottom-left-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+.title {
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 100px;
+	font-family: VT323;
+	letter-spacing: 0.5rem;
+}

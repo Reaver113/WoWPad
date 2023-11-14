@@ -1,0 +1,69 @@
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.button {
+	width: 30px;
+	height: 30px;
+	background-color: aqua;
+	border-radius: 5px;
+	display: flex;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: gold;
+}
+
+.open {
+	background-color: gold;
+}
+
+.speechBubble {
+	margin-left: 10px;
+	position: absolute;
+	display: grid;
+	grid-template-columns: 33.3% 33.3% 33.3%;
+	background-color: rgb(44, 40, 40);
+	color: white;
+	border: 1px solid white;
+	padding: 10px;
+	border-radius: 5px;
+	position: absolute;
+	background-color: #fff;
+	transform: translate(125px, 0px);
+	z-index: 1;
+}
+.speechBubble::before{
+	content:"";
+	position: absolute;
+	top:39px;
+	left: 40px;
+	margin:auto;
+	height: 20px;
+	width: 20px;
+	border:1px solid #fff;
+	transform: translate(-50px, 70px) rotate(45deg);
+	background-color: #fff;
+}
+
+
+.imageContainer {
+	height: 50px;
+	width: 50px;
+	margin-bottom: 5px;
+	margin-right: 2.5px;
+	margin-left: 2.5px;
+}
+
+.imageContainer:hover {
+	cursor: pointer;
+	filter: brightness(150%);
+}
+
+.image {
+	height: 50px;
+	width: 50px;
+}
