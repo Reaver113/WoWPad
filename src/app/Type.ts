@@ -17,3 +17,9 @@ export interface InputProps {
 export interface PickerProps {
 	icons: any
 }
+
+export interface ButtonProps {
+	text: string
+	link?: string
+	action?: any
+}

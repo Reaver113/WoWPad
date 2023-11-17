@@ -10,14 +10,23 @@ import Picker from "../Components/Picker"
 import styles from "../Styles/index.module.css"
 import DungeonListLayout from "@/Components/Layouts/DungeonListLayout"
 import CheckListLayout from "@/Components/Layouts/CheckListLayout"
-import { ClassIcons } from "./Helpers"
+import { ClassIcons, GrabCode } from "./Helpers"
+import Login from "@/Components/Login"
+import Background from "@/Components/Background"
 
 export default function Home() {
 
+  const [user, setUser] = useState("")
   const classIcons = ClassIcons()
   const [characterCount, setCharacterCount] = useState(3)
   const CharArray = [];
+  
+  useEffect(() => {
+    window.location.search.includes("code") &&
+      setUser(GrabCode())
+  },[])
 
+  console.log(user)
   for (let i = 0; i < characterCount; i++) {
     CharArray.push(
       <div className={styles.classPickerContainer}>
@@ -38,6 +47,11 @@ export default function Home() {
   }
 
   return (
+    <>
+          <Background />
+    {!user ? 
+      <Login />
+    :  
     <div className={styles.container}>
     <InputLayout>
       <Title {...{title: "WoWPad", image: Wowpad}} />
@@ -53,6 +67,7 @@ export default function Home() {
     <CheckListLayout>
 
     </CheckListLayout>
-    </div>
+    </div>}
+    </>
   )
 }

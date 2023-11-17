@@ -1,6 +1,7 @@
 import { InputProps } from '../app/Type'
 import styles from '../Styles/InputBar.module.css'
 import { useState } from 'react'
+import Button from './Button'
 
 export default function InputBar(props: InputProps) {
 
@@ -19,7 +20,9 @@ export default function InputBar(props: InputProps) {
 	return (
 		<div className={styles.container}>
 			<input className={styles.input} value={charNo} onChange={inputHandler} onKeyDown={handleKeyDown} type={props.isInteger ? "number" : "text"} ></input>
-			<div className={styles.button} onClick={() => props.action(charNo)}>{props.buttonText}</div>
+			<div onClick={() => props.action(charNo)}>
+				<Button text={props.buttonText}></Button>
+			</div>
 		</div>
 	)
 }

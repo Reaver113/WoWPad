@@ -12,6 +12,13 @@ import WarlockImg from '../Images/Classes/Warlock.png';
 import WarriorImg from '../Images/Classes/Warrior.png';
 
 
+export function GrabCode() {
+	const queryString = window.location.search
+	const code = queryString.substring(queryString.indexOf("=") + 1, queryString.lastIndexOf("&"))
+	return code
+}
+
+
 
 
 export function ClassIcons() {
