@@ -4,21 +4,21 @@
 	justify-content: center;
 }
 
-.button {
-	width: 30px;
-	height: 30px;
+.buttonImage {
 	background-color: aqua;
-	border-radius: 5px;
+	border-radius: 10px;
 	display: flex;
 	cursor: pointer;
+	height: 50px;
+	width: 50px;
 }
 
-.button:hover {
-	background-color: gold;
+.buttonImage:hover {
+	filter: brightness(150%);
 }
 
 .open {
-	background-color: gold;
+	filter: brightness(150%);
 }
 
 .speechBubble {
@@ -26,13 +26,11 @@
 	position: absolute;
 	display: grid;
 	grid-template-columns: 33.3% 33.3% 33.3%;
-	background-color: rgb(44, 40, 40);
+	background-color: #604d4f;
 	color: white;
-	border: 1px solid white;
 	padding: 10px;
 	border-radius: 5px;
 	position: absolute;
-	background-color: #fff;
 	transform: translate(125px, 0px);
 	z-index: 1;
 }
@@ -44,11 +42,9 @@
 	margin:auto;
 	height: 20px;
 	width: 20px;
-	border:1px solid #fff;
 	transform: translate(-50px, 70px) rotate(45deg);
-	background-color: #fff;
+	background-color: #604d4f
 }
-
 
 .imageContainer {
 	height: 50px;

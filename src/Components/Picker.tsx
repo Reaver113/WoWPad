@@ -5,9 +5,12 @@ import Image from 'next/image'
 
 
 export default function Picker( props: PickerProps) {
+	function getRandomInt(max: number) {
+		return Math.floor(Math.random() * max);
+	}
 
 	const [isOpen, setIsOpen] = useState(false)
-	const [playerClass, setPlayerClass] = useState({})
+	const [playerClass, setPlayerClass] = useState(props.icons[getRandomInt(9)])
 
 	return (
 		<div className={styles.container}>
@@ -20,7 +23,7 @@ export default function Picker( props: PickerProps) {
 					))}
 				</div>
 			}
-			<div className={`${styles.button} ${isOpen && styles.open}`} onClick={() => setIsOpen(isOpen ? false : true)}></div>
+			<Image className={styles.buttonImage} src={playerClass.src} alt={playerClass.name} onClick={() => setIsOpen(isOpen ? false : true)}/>
 		</div>
 	)
 }
