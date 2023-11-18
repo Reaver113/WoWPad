@@ -18,9 +18,6 @@ export function GrabCode() {
 	return code
 }
 
-
-
-
 export function ClassIcons() {
 	const DeathKnight = {
 		name: "Death Knight",

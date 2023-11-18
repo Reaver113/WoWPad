@@ -23,3 +23,21 @@ export interface ButtonProps {
 	link?: string
 	action?: any
 }
+
+export interface LoginProps {
+	bnet_id: any
+	redirect_uri: any
+}
+
+export interface LoginUserProps {
+	user: string
+	bnet_id: any
+	redirect_uri: any
+	bnet_secret: any
+}
+
+export interface GetUserDataProps {
+	access_token: string
+	bnet_id: any
+	bnet_secret: any
+}

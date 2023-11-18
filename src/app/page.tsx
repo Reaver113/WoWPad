@@ -13,53 +13,50 @@ import CheckListLayout from "@/Components/Layouts/CheckListLayout"
 import { ClassIcons, GrabCode } from "./Helpers"
 import Login from "@/Components/Login"
 import Background from "@/Components/Background"
+import { GetUserData, LoginUser } from "@/lib/api"
+import Button from "@/Components/Button"
 
 export default function Home() {
 
+  const [accessToken, setAccessToken] = useState("")
+  const [hasTokenBeenAssigned, setHasTokenBeenAssigned] = useState(false);
+  const [hasDataBeenGrabbed, setHasDataBeenGrabbed] = useState(false)
   const [user, setUser] = useState("")
-  const classIcons = ClassIcons()
-  const [characterCount, setCharacterCount] = useState(3)
-  const CharArray = [];
+  const REDIRECT_URI = "http://localhost:3000"
+  const BNET_ID = process.env.NEXT_PUBLIC_BNET_ID
+  const BNET_SECRET = process.env.NEXT_PUBLIC_BNET_SECRET
+
+  
+  async function AssignAccessToken() {
+    const token = await LoginUser({user: user, bnet_id: BNET_ID, redirect_uri: REDIRECT_URI, bnet_secret: BNET_SECRET})
+      return token.access_token
+  }
   
   useEffect(() => {
     window.location.search.includes("code") &&
       setUser(GrabCode())
-  },[])
-
-  console.log(user)
-  for (let i = 0; i < characterCount; i++) {
-    CharArray.push(
-      <div className={styles.classPickerContainer}>
-        <Bubble>
-          <Text {...{text: "Class?"}}/>
-          <Picker {...{icons: classIcons}}/>
-        </Bubble>
-        <Bubble>
-          <Text {...{text: "Spec?"}}/>
-          <Picker {...{icons: classIcons}}/>
-        </Bubble>
-        <Bubble>
-          <Text {...{text: "Name?"}}/>
-          <InputBar {...{ isInteger: false, buttonText: "Submit", action: setCharacterCount}}/>
-        </Bubble>
-      </div>
-    )
-  }
+  user && !hasTokenBeenAssigned &&
+    AssignAccessToken()
+      .then(value => {value && setAccessToken(value), setHasTokenBeenAssigned(true)})
+  accessToken && !hasDataBeenGrabbed &&
+    GetUserData({access_token: accessToken, bnet_id: BNET_ID, bnet_secret: BNET_SECRET}).then(value => {console.log(value), setHasDataBeenGrabbed(true)})
+  },[user, accessToken])
 
   return (
     <>
           <Background />
     {!user ? 
-      <Login />
+      <Login bnet_id={BNET_ID} redirect_uri={REDIRECT_URI}/>
     :  
     <div className={styles.container}>
     <InputLayout>
       <Title {...{title: "WoWPad", image: Wowpad}} />
+      <Bubble>
+        <Button text="Restart" link='/' action={() => location.reload()}/>
+      </Bubble>
         <Bubble>
-          <Text {...{text: "How Many Characters will you be usuing?"}}/>
-          <InputBar {...{default: 3, isInteger: true, buttonText: "Submit", action: setCharacterCount}}/>
+          <Text {...{text: "Select Your Server"}}/>
         </Bubble>
-      {CharArray}
     </InputLayout>
     <DungeonListLayout>
 
