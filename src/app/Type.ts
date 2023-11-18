@@ -36,8 +36,13 @@ export interface LoginUserProps {
 	bnet_secret: any
 }
 
-export interface GetUserDataProps {
+export interface RequestProps {
 	access_token: string
-	bnet_id: any
-	bnet_secret: any
+}
+
+export interface CharacterProps {
+	accountData: Object
+}
+export interface InstanceProps {
+	instanceData: Object
 }
