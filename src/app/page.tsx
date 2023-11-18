@@ -1,20 +1,13 @@
 "use client"
-import Text from "../Components/Text"
-import Bubble from "../Components/Bubble"
-import Title from "../Components/Title"
-import Wowpad from "../Images/WowPad.png"
-import InputBar from "../Components/InputBar"
 import { useEffect, useState } from "react"
-import Picker from "../Components/Picker"
-import styles from "../Styles/index.module.css"
-import FinalDisplay from "../Components/Layouts/FinalDisplay"
-import DungeonSelect from "@/Components/Layouts/DungeonSelect"
-import CharacterSelect from "@/Components/Layouts/CharacterSelect"
+import "../Styles/index.css"
+import FinalDisplay from "../Components/Sections/FinalDisplay"
+import DungeonSelect from "@/Components/Sections/DungeonSelect"
+import CharacterSelect from "@/Components/Sections/CharacterSelect"
 import { ClassIcons, GrabCode } from "./Helpers"
 import Login from "@/Components/Login"
 import Background from "@/Components/Background"
 import { GetClassicData, GetBurningCrusadeData, GetWrathOfTheLichKingData, GetCataclysmData, GetMistsOfPandariaData, GetWarlordsOfDraenorData, GetLegionData, GetBattleForAzerothData, GetShadowlandsData, GetDragonflightData, GetUserData, LoginUser } from "@/lib/api"
-import Button from "@/Components/Button"
 
 export default function Home() {
 
@@ -69,10 +62,7 @@ export default function Home() {
       {!user ? 
         <Login bnet_id={BNET_ID} redirect_uri={REDIRECT_URI}/>
       :  
-      <div className={styles.container}>
-        <Bubble>
-          <Button text="Restart" link='/' action={() => location.reload()}/>
-        </Bubble>
+      <div>
         <CharacterSelect accountData={userData}/>
         <DungeonSelect instanceData={instanceData}/>
       </div>}

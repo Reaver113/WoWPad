@@ -1,0 +1,15 @@
+.container {
+
+}
+
+.dropdown {
+	border-radius: 5px;
+	background-color: white;
+	color: black;
+	padding: 5px;
+}
+
+.option {
+	color: black;
+	font-family: sans-serif;
+}

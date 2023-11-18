@@ -41,8 +41,13 @@ export interface RequestProps {
 }
 
 export interface CharacterProps {
-	accountData: Object
+	accountData: any
 }
 export interface InstanceProps {
 	instanceData: Object
+}
+
+export interface DropdownProps {
+	setState: Function
+	options: any
 }
