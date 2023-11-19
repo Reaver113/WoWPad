@@ -4,16 +4,17 @@ import { useEffect } from 'react';
 
 export default function AccountDropdown(props: DropdownProps) {
 
+	
+	const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+		const selectedOption = event.target.value;
+		props.setState(selectedOption)
+	}
+
 	useEffect(() => {
 		if (props.options && props.options.length > 0) {
 			props.setState(props.options[0].id);
 		}
 	}, [props.options]);
-
-	const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-		const selectedOption = event.target.value;
-		props.setState(selectedOption)
-	}
 
 
 	return (

@@ -1,7 +1,6 @@
 .container {
 	background-color: rgba(45, 47, 49, 0.8);
 	border-radius: 10px;
-	width: fit-content;
 	padding: 10px;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -9,6 +8,17 @@
 	margin-right: 10PX;
 	display: flex;
 	flex-direction: column;
+}
+
+.left {
+	justify-content: center;
+}
+
+.center {
 	justify-content: center;
 	align-items: center;
+}
+
+.container .container {
+	background-color: rgba(45, 47, 49, 1);
 }

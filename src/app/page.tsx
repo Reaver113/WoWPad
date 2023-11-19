@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react"
 import "../Styles/index.css"
 import FinalDisplay from "../Components/Sections/FinalDisplay"
+import ThirtySeventyGrid from "@/Components/Alignment/ThirtySeventyGrid"
 import DungeonSelect from "@/Components/Sections/DungeonSelect"
 import CharacterSelect from "@/Components/Sections/CharacterSelect"
 import { ClassIcons, GrabCode } from "./Helpers"
@@ -63,8 +64,10 @@ export default function Home() {
         <Login bnet_id={BNET_ID} redirect_uri={REDIRECT_URI}/>
       :  
       <div>
-        <CharacterSelect accountData={userData}/>
-        <DungeonSelect instanceData={instanceData}/>
+        <ThirtySeventyGrid>
+          <CharacterSelect accountData={userData}/>
+          <DungeonSelect instanceData={instanceData}/>
+        </ThirtySeventyGrid>
       </div>}
     </>
   )

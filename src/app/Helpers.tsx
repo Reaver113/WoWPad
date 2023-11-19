@@ -10,63 +10,45 @@ import RogueImg from '../Images/Classes/Rogue.png';
 import ShamanImg from '../Images/Classes/Shaman.png';
 import WarlockImg from '../Images/Classes/Warlock.png';
 import WarriorImg from '../Images/Classes/Warrior.png';
+import PriestImg from '../Images/Classes/Priest.png'
+
+
+export function ClassIcons(className: string) {
+	switch (className) {
+			case 'Death Knight':
+					return DeathKnightImg;
+			case 'Demon Hunter':
+					return DemonHunterImg;
+			case 'Druid':
+					return DruidImg;
+			case 'Evoker':
+					return EvokerImg;
+			case 'Hunter':
+					return HunterImg;
+			case 'Mage':
+					return MageImg;
+			case 'Monk':
+					return MonkImg;
+			case 'Paladin':
+					return PaladinImg;
+			case 'Priest':
+					return PriestImg;
+			case 'Rogue':
+					return RogueImg;
+			case 'Shaman':
+					return ShamanImg;
+			case 'Warlock':
+					return WarlockImg;
+			case 'Warrior':
+					return WarriorImg;
+			default:
+					return WarriorImg;
+	}
+}
 
 
 export function GrabCode() {
 	const queryString = window.location.search
 	const code = queryString.substring(queryString.indexOf("=") + 1, queryString.lastIndexOf("&"))
 	return code
-}
-
-export function ClassIcons() {
-	const DeathKnight = {
-		name: "Death Knight",
-		src: DeathKnightImg
-	}
-	const DemonHunter = {
-		name: "Deamon Hunter",
-		src: DemonHunterImg
-	}
-	const Druid = {
-		name: "Druid",
-		src: DruidImg
-	}
-	const Evoker = {
-		name: "Evoker",
-		src: EvokerImg
-	}
-	const Hunter = {
-		name: "Hunter",
-		src: HunterImg
-	}
-	const Mage = {
-		name: "Mage",
-		src: MageImg
-	}
-	const Monk = {
-		name: "Monk",
-		src: MonkImg
-	}
-	const Paladin = {
-		name: "Paladin",
-		src: PaladinImg
-	}
-	const Rogue = {
-		name: "Rogue",
-		src: RogueImg
-	}
-	const Shaman = {
-		name: "Shaman",
-		src: ShamanImg
-	}
-	const Warlock = {
-		name: "Warlock",
-		src: WarlockImg
-	}
-	const Warrior = {
-		name: "Warrior",
-		src: WarriorImg
-	}
-	const classList: any = [DeathKnight, DemonHunter, Druid, Evoker, Hunter, Mage, Monk, Paladin, Rogue, Shaman, Warlock, Warrior]
-	return classList
 }

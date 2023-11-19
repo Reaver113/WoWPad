@@ -49,5 +49,10 @@ export interface InstanceProps {
 
 export interface DropdownProps {
 	setState: Function
+	state?: any
 	options: any
+}
+
+export interface CharacterListProps {
+	characters: any
 }

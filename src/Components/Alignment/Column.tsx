@@ -1,4 +1,4 @@
-import styles from '../Styles/Column.module.css'
+import styles from '../../Styles/Column.module.css'
 
 export default function Column(props: any) {
 	return (
